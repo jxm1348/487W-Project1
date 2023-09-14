@@ -196,38 +196,79 @@ def view_history_menu():
             for item in existing_data:
                 timestamp_table.delete(item)
 
-            for item in updated_data:
-                timestamp_table.insert("", "end", values=item)
+            timestamp_table.pack_forget()
+
+            timestamp_table = ttk.Treeview(app, columns=("ID", "Name", "Time Stamp", "In/Out"))
+            timestamp_table.heading("#1", text="ID")
+            timestamp_table.heading("#2", text="Name")
+            timestamp_table.heading("#3", text="Date")
+            timestamp_table.heading("#4", text="In/Out")
+
+            timestamp_table.pack()
+
+            for row in updated_data:
+                timestamp_table.insert("", "end", values=row)
 
         if filter == "name":
             existing_data = timestamp_table.get_children()
-            updated_data = functions.searchTableIdAdmin(read_textbox())
+            updated_data = functions.searchTableNameAdmin(read_textbox())
 
             for item in existing_data:
                 timestamp_table.delete(item)
 
-            for item in updated_data:
-                timestamp_table.insert("", "end", values=item)
+            timestamp_table.pack_forget()
+
+            timestamp_table = ttk.Treeview(app, columns=("ID", "Name", "Time Stamp", "In/Out"))
+            timestamp_table.heading("#1", text="ID")
+            timestamp_table.heading("#2", text="Name")
+            timestamp_table.heading("#3", text="Date")
+            timestamp_table.heading("#4", text="In/Out")
+
+            timestamp_table.pack()
+
+            for row in updated_data:
+                timestamp_table.insert("", "end", values=row)
 
         if filter == "date":
             existing_data = timestamp_table.get_children()
-            updated_data = functions.searchTableIdAdmin(read_textbox())
+            updated_data = functions.searchTableDateAdmin(read_textbox())
 
             for item in existing_data:
                 timestamp_table.delete(item)
 
-            for item in updated_data:
-                timestamp_table.insert("", "end", values=item)
+            timestamp_table.pack_forget()
+
+            timestamp_table = ttk.Treeview(app, columns=("ID", "Name", "Time Stamp", "In/Out"))
+            timestamp_table.heading("#1", text="ID")
+            timestamp_table.heading("#2", text="Name")
+            timestamp_table.heading("#3", text="Date")
+            timestamp_table.heading("#4", text="In/Out")
+
+            timestamp_table.pack()
+
+            for row in updated_data:
+                timestamp_table.insert("", "end", values=row)
 
         if filter == "range":
             existing_data = timestamp_table.get_children()
-            updated_data = functions.searchTableIdAdmin(read_textbox())
+            updated_data = functions.searchTableRangeAdmin(read_textbox())
 
             for item in existing_data:
                 timestamp_table.delete(item)
 
-            for item in updated_data:
-                timestamp_table.insert("", "end", values=item)
+            timestamp_table.pack_forget()
+
+            timestamp_table = ttk.Treeview(app, columns=("ID", "Name", "Time Stamp", "In/Out"))
+            timestamp_table.heading("#1", text="ID")
+            timestamp_table.heading("#2", text="Name")
+            timestamp_table.heading("#3", text="Date")
+            timestamp_table.heading("#4", text="In/Out")
+
+            timestamp_table.pack()
+
+            for row in updated_data:
+                timestamp_table.insert("", "end", values=row)
+
 
     def search_date_button():
         button = tk.Button(app, text="Search Date", command=search_date_click)
@@ -264,7 +305,7 @@ def view_history_menu():
     def reset_click():
         displayTimestampTable("reset")
 
-    displayTimestampTable("reset")
+    displayTimestampTable("none")
     reset_button()
     text_box()
     search_id_button()
