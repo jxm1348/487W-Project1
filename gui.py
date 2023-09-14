@@ -68,6 +68,12 @@ def mainMenu():
             except mysql.connector.Error as err:
                 cnx.rollback()
                 print(f"Error inserting data: {err}")
+        if functions.search_status(read_textbox()) == 1:
+            functions.insert_timestamp(read_textbox())
+        elif functions.swipe(read_textbox()) == 0:
+            create_label("Denied. Please contact an Admin")
+        else:
+            create_label("Please insert a correct ID")
 
     def swipe_button_out():
         button = tk.Button(app, text="Swipe Out", command=swipe_click_out)
