@@ -299,7 +299,7 @@ def edit_student_access_menu():
         button.pack()
 
     def deactivate_click():
-        functions.activate(read_textbox(), app)
+        functions.deactivate(read_textbox(), app)
 
     create_label("Insert student's ID you wish to change")
     text_box()
